@@ -33,17 +33,20 @@ Works both with one & multiple files mode.
 1. import the module to your one:
 
 ```typescript
-
+    import { NgModule }    from '@angular/core';
+    import { FormsModule } from '@angular/forms';  
+      
     import { Ng2FileSizeModule } from 'ng2-file-size';
 
     @NgModule({
-      ...
       imports: [
-        ...
-        Ng2FileSizeModule
+        // other core modules
+        FormsModule, // required because of NgModel dependency
+        Ng2FileSizeModule,
+        // other app modules
       ]
     })
-    ...
+    class MyModule {}
 
 ```
 
@@ -54,13 +57,21 @@ Works both with one & multiple files mode.
         1. Make it's size restricted by min value (in bytes).
         2. The error message is a default one: 'File size is invalid' 
     -->
-    <input type="file" [ng2FileSize]="{ min: 1024 }" />
+    <input 
+      type="file" 
+      [ng2FileSize]="{ min: 1024 }" 
+      [(ngModel)]="myFile"
+    />
     
     <!-- 
         1. Make it's size restricted by max value (in bytes).
         2. The error message is a default one: 'File size is invalid'
     -->
-    <input type="file" [ng2FileSize]="{ max: 1024 }" />
+    <input 
+      type="file" 
+      [ng2FileSize]="{ max: 1024 }" 
+      [(ngModel)]="myFile"
+    />
     
     <!-- 
         1. Make it's size restricted by min & max values (in bytes).
@@ -70,6 +81,7 @@ Works both with one & multiple files mode.
       type="file" 
       [ng2FileSize]="{ min: 1024, max: 1024 * 1024 }"
       [fileSizeErrorMsg]="'File size must be less that 1mb and more that 1kb!'"
+      [(ngModel)]="myFile"
     />
 
     <!--
@@ -80,6 +92,7 @@ Works both with one & multiple files mode.
       type="file"
       [ng2FileSize]="fileSizeRestrictions"
       [fileSizeErrorMsg]="customErrorMessage"
+      [(ngModel)]="myFile"
     />
 ```
 

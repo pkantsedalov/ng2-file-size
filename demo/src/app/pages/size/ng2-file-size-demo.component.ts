@@ -1,7 +1,7 @@
 import {
     Component,
     ViewChild,
-    OnInit,
+    OnInit
 } from '@angular/core';
 import {
     Ng2FileSizeDirective,

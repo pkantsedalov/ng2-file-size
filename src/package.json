@@ -1,6 +1,6 @@
 {
   "name": "ng2-file-size",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "peerDependencies": {
     "@angular/core": "^4.0.2",
     "@angular/forms": "^4.0.2"

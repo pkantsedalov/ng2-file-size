@@ -146,7 +146,7 @@ export class Ng2FileSizeDirective implements Validator, OnInit, OnChanges, DoChe
           this.ng2FileSize.min !== this._oldValues.min
       ) {
         changeDetected = true;
-        (<MinFileSizeRestriction>this._oldValues).min = this.ng2FileSize.min;
+        (this._oldValues as MinFileSizeRestriction).min = this.ng2FileSize.min;
       }
 
       if (
@@ -155,7 +155,7 @@ export class Ng2FileSizeDirective implements Validator, OnInit, OnChanges, DoChe
           this.ng2FileSize.max !== this._oldValues.max
       ) {
         changeDetected = true;
-        (<MaxFileSizeRestriction>this._oldValues).max = this.ng2FileSize.max;
+        (this._oldValues as MaxFileSizeRestriction).max = this.ng2FileSize.max;
       }
 
       if (changeDetected) {
@@ -233,9 +233,10 @@ export class Ng2FileSizeDirective implements Validator, OnInit, OnChanges, DoChe
 
     if (value) {
 
-      if (this.multiple && !!(<FileList>value).length) {
-        value = <FileList>value;
+      if (this.multiple && !!(value as FileList).length) {
+        value = value as FileList;
 
+        // tslint:disable-next-line
         for (let i = 0, length = value.length; i < length; i++) {
           const file: File = value.item(i);
 
@@ -246,7 +247,7 @@ export class Ng2FileSizeDirective implements Validator, OnInit, OnChanges, DoChe
         }
 
       } else {
-        valid = this._validateSize(<File|undefined>value);
+        valid = this._validateSize(value as File|undefined);
       }
     }
 
