@@ -1,5 +1,7 @@
 # ng2-file-size [![npm version](https://badge.fury.io/js/ng2-file-size.svg)](http://badge.fury.io/js/ng2-file-size) [![npm downloads](https://img.shields.io/npm/dm/ng2-file-size.svg)](https://npmjs.org/ng2-file-size)
 
+### @DEPRACATED: the project is not maintainable anymore because of moving to the newest angular version.
+
 [![Build Status](https://travis-ci.org/pkantsedalov/ng2-file-size.svg?branch=master)](https://travis-ci.org/pkantsedalov/ng2-file-size)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
